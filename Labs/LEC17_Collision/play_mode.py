@@ -38,6 +38,10 @@ def init():
     balls = [Ball(random.randint(100, 1600-100), 60, 0) for _ in range(30)]
     game_world.add_objects(balls, 1)
 
+    game_world.add_collision_pair('boy:ball', boy, None)
+    for ball in balls:
+        game_world.add_collision_pair('boy:ball', None, ball)
+
 def pause():
     boy.pause()
 
