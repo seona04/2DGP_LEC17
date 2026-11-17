@@ -1,4 +1,5 @@
 from pico2d import *
+from Labs.LEC17_Collision import ball
 import game_world
 import game_framework
 from boy import Boy
@@ -53,6 +54,9 @@ def finish():
 
 def update():
     game_world.update()
+    for ball in balls:
+        if game_world.collide(boy, ball):
+            print('COLLISION boy : ball')
 
 def render():
     clear_canvas()
