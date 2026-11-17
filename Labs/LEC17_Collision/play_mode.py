@@ -57,6 +57,9 @@ def update():
     for ball in balls:
         if game_world.collide(boy, ball):
             print('COLLISION boy : ball')
+            boy.ball_count += 1
+            game_world.remove_object(ball)
+            balls.clear()
 
 def render():
     clear_canvas()
