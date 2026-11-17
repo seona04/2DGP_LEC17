@@ -1,3 +1,5 @@
+from tokenize import group
+
 from pico2d import draw_rectangle, get_canvas_width, load_image
 
 import game_world
@@ -41,3 +43,7 @@ class Ball:
 
     def get_bb(self):
         return self.x - self.radius, self.y - self.radius, self.x + self.radius, self.y + self.radius
+
+    def handle_collision(self, group, other):
+        if group == 'boy:ball':
+            game_world.remove_object(self)
