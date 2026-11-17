@@ -26,6 +26,14 @@ def collide(a, b):
 
     return True
 
+def handle_collisions():
+    for group, pairs in collision_pairs.items():
+        for a in pairs[0]:
+            for b in pairs[1]:
+                if collide(a, b):
+                    a.handle_collision(group, b)
+                    b.handle_collision(group, a)
+
 collision_pairs = {}
 def add_collision_pair(group, a, b):
     if group not in collision_pairs:
