@@ -1,5 +1,3 @@
-from tokenize import group
-
 from pico2d import draw_rectangle, get_canvas_width, load_image
 
 import game_world
