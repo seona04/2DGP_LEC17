@@ -38,3 +38,5 @@ class Ball:
     def draw(self):
         self.image.draw(self.x, self.y)
 
+    def get_bb(self):
+        return self.x - self.radius, self.y - self.radius, self.x + self.radius, self.y + self.radius
