@@ -33,6 +33,7 @@ def init():
 
     grass = Grass()
     game_world.add_oject(grass, 0)
+    game_world.add_collision_pair('grass:ball', grass, None)
 
     global balls
     balls = [Ball(random.randint(100, 1600-100), 60, 0) for _ in range(30)]

@@ -7,6 +7,7 @@ from sdl2 import (SDL_KEYDOWN, SDL_KEYUP, SDLK_LEFT, SDLK_RIGHT,
                   SDLK_SPACE)
 from transitions import Machine
 
+from Labs.LEC15_Game_Framework import ball
 import game_world
 from ball import Ball
 
@@ -144,8 +145,10 @@ class Boy:
         self.ball_count -= 1
         ball = Ball(self.x + self.face_dir * 40, self.y + 60, self.face_dir,
                     1 if self.item == 'Ball' else 2)
-        game_world.add_oject(ball)
-
+        game_world.add_oject(ball, 1)
+        game_world.add_collision_pair('grass:ball', None, ball)
+        game_world.add_collision_pair('boy:ball', None, ball)
+        
     def pause(self):
         self.pressed_keys.clear()
         if self.state == 'RUN':
