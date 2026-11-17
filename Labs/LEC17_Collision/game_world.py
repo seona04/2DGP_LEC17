@@ -1,3 +1,6 @@
+from tokenize import group
+
+
 world = [[], [], []]  # 0: 배경, 1: 오브젝트, 2: UI
 
 def add_oject(o, depth=1):
@@ -22,6 +25,16 @@ def collide(a, b):
     if bottom_a > top_b: return False
 
     return True
+
+collision_pairs = {}
+def add_collision_pair(group, a, b):
+    if group not in collision_pairs:
+        print(f'Added new group {group}')
+        collision_pairs[group] = [ [], [] ]
+if a:
+    collision_pairs[group][0].append(a)
+if b:
+    collision_pairs[group][1].append(b)
 
 def update():
     for layer in world:
