@@ -182,6 +182,7 @@ class Boy:
     def draw(self):
         self.states[self.state].draw(self)
         self.font.draw(self.x - 10, self.y + 50, f'{self.ball_count:02d}', (255, 255, 0))
+        draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x - 50, self.y - 50, self.x + 50, self.y + 50
